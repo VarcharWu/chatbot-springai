@@ -18,6 +18,7 @@ ChatDemo 是一个基于 Spring Boot 的示例应用，演示如何通过 Spring
    - 利用 MyBatis-Plus 对 messages 表进行增删改查。
 
 四、项目结构
+```
 src/
 ├── main/
 │   ├── java/com/example/chatdemo/
@@ -32,23 +33,28 @@ src/
 │       ├── application.properties          // 配置文件
 │   └── mapper/*.xml                        // MyBatis-Plus XML（可选）
 └── test/
+```
 
 五、环境准备
 1. JDK 17+
 2. Maven 3.6+
 3. MySQL 5.7+，并创建数据库 chat_db：
+```sql
    CREATE DATABASE chat_db
      CHARACTER SET utf8mb4
      COLLATE utf8mb4_unicode_ci;
+```
 4. Ollama 服务
    - 本地或远端运行 Ollama，确保 base-url 可访问
    - 示例：http://mickymmw.online:12379
 
 六、配置说明（application.properties）
+```java
 spring.application.name=chat-demo
 server.port=8080
-
+```
 # Ollama AI
+```java
 spring.ai.ollama.base-url=你的ollama的地址
 spring.ai.ollama.chat.options.model=你ollma的模型名称
 
@@ -64,20 +70,24 @@ mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 
 # 日志级别
 logging.level.com.example.chat=DEBUG
-
+```
 注意：请根据你本地/测试环境修改数据库连接和 Ollama 服务地址。
 
 七、快速启动
 1. 克隆项目并进入目录：
+```bash
    git clone https://your-repo-url/chatdemo.git
    cd chatdemo
-
-2. 修改 src/main/resources/application.properties 中的配置。
+```
+2. 修改 ```src/main/resources/application.properties``` 中的配置。
 3. 使用 Maven 构建并启动：
+   ```bash
    mvn clean spring-boot:run
-
-4. 访问 AI 聊天接口：
+   ```
+5. 访问 AI 聊天接口：
+   ```bash
    GET http://localhost:8080/chat
+   ```
    返回 AI 模型对 "hello" 的回答。
 
 八、接口说明
